@@ -36,6 +36,8 @@ fi
 
 sudo cp $git_folder/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux_conf=~/.tmux.conf
+
+# Place Plugins here:
 plugin_lines=(
     'set -g @plugin "tmux-plugins/tpm"'
     'set -g @plugin "tmux-plugins/tmux-sensible"'
