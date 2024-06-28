@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Installs the ablility to log commands typed into the terminal
+
 ###############################
 # Install command logger
 
-cd $git_folder
+cd ~
 sudo mkdir log && sudo chmod 777 log && cd log
 sudo touch cmd_logr_install.sh && sudo chmod 777 cmd_logr_install.sh
 cat << 'EOF' > cmd_logr_install.sh
@@ -54,5 +56,7 @@ echo "cmd_logr_install.sh finished!"
 
 EOF
 
-echo "Copied 'cmd_logr_install.sh' at: $PWD - $(get_timestamp)" | tee -a $logg
+echo "Copied 'cmd_logr_install.sh' at: $PWD"
 ./cmd_logr_install.sh
+echo "Install complete for 'cmd_logr_install.sh'"
+cd ~
