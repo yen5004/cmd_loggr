@@ -35,7 +35,7 @@ echo 'test "$(ps -ocommand= -p $PPID | awk '\''{print $1}'\'')" == '\''script'\'
 echo "echo TED-User: '$name'" >> ~/.zshrc
 echo "ifconfig" >> ~/.zshrc
 echo "NOTE: Use EXIT to close Log Script" >> ~/.zshrc
-echo "NOTE: Use EXIT to close Log Script"
+#echo "NOTE: Use EXIT to close Log Script"
 echo 'echo $note' >> ~/.zshrc
 
 #Store username in the .bashrc
@@ -49,10 +49,9 @@ echo 'test "$(ps -ocommand= -p $PPID | awk '\''{print $1}'\'')" == '\''script'\'
 #Confirm user is stored and display IP info and more
 echo "User_Name: '$name'" >> ~/.bashrc
 echo "ifconfig" >> ~/.bashrc
-echo 'note="use exit to  close script"' >> ~/.bashrc
+echo 'NOTE: Use EXIT to close Log Script' >> ~/.bashrc
 echo 'echo $note' >> ~/.bashrc
 echo "Command logger install complete"
-echo "cmd_logr_install.sh finished!"
 
 EOF
 
