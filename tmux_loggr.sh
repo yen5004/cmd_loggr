@@ -34,7 +34,7 @@ else
   echo ".tmux/plugins/tpm/scripts folder already exists"
 fi
 
-sudo cp $git_folder/tmux-plugins/tpm ~/.tmux/plugins/tpm
+sudo cp $git_folder/tpm ~/.tmux/plugins/tpm
 tmux_conf=~/.tmux.conf
 
 # Place Plugins here:
