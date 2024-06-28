@@ -47,7 +47,7 @@ echo 'RPROMPT="[%D{%d%b%Y}|%D{%L:%M}]"' >> ~/.bashrc
 echo 'test "$(ps -ocommand= -p $PPID | awk '\''{print $1}'\'')" == '\''script'\'' || (script -a -f $HOME/log/$(date +"%F")_shell.log)' >> ~/.bashrc
 
 #Confirm user is stored and display IP info and more
-echo "TED-User: '$name'" >> ~/.bashrc
+echo "User_Name: '$name'" >> ~/.bashrc
 echo "ifconfig" >> ~/.bashrc
 echo 'note="use exit to  close script"' >> ~/.bashrc
 echo 'echo $note' >> ~/.bashrc
