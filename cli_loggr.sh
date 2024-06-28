@@ -5,8 +5,18 @@
 ###############################
 # Install command logger
 
+#check to see if the .zshrc file exists in home directory and, if not create one
 cd ~
-sudo mkdir log && sudo chmod 777 log && cd log
+if [ ! ".zshrc" ]; then
+  echo ".zshrc file not found. Creating..."
+  sudo touch ".zshrc"
+  echo ".zshrc file created successfully."
+else  
+  echo ".zshrc fil already exists."
+fi
+
+cd ~
+sudo mkdir log && sudo chmod 777 log
 sudo touch cmd_logr_install.sh && sudo chmod 777 cmd_logr_install.sh
 cat << 'EOF' > cmd_logr_install.sh
 #Install logger script
