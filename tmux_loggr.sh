@@ -26,6 +26,14 @@ else
   echo ".tmux/plugins/tpm folder already exists"
 fi
 
+if [ ! -d ".tmux/plugins/tpm/tpm" ]; then
+  echo ".tmux/plugins/tpm/tpm folder not found. Creating..."
+  sudo mkdir ".tmux/plugins/tpm/tpm" && sudo chmod 777 -R ".tmux/plugins/tpm/tpm"
+  echo ".tmux/plugins/tpm/tpm folder created successfully."
+else  
+  echo ".tmux/plugins/tpm/tpm folder already exists"
+fi
+
 if [ ! -d ".tmux/plugins/tpm/scripts" ]; then
   echo ".tmux/plugins/tpm/scripts folder not found. Creating..."
   sudo mkdir ".tmux/plugins/tpm/scripts" && sudo chmod 777 -R ".tmux/plugins/tpm/scripts"
@@ -48,14 +56,20 @@ plugin_lines=(
 
 # Check if the file already exists
 if [ ! -f "$tmux_conf" ]; then
+    # If file doesnt exsist, make one and loop through plugins
+    sudo touch 'tmux_conf' && sudo chmod 777 '$tmux_conf'
     # Iterate over each plugin line and append it to the file
     for line in "${plugin_lines[@]}"; do
         echo "$line" >> "$tmux_conf"
     done
 else
-    echo "File $tmux_conf already exists. Skipping append operation."
+    echo "File $tmux_conf already exists. Starting append operation."
+    # Iterate over each plugin line and append it to the file
+    for line in "${plugin_lines[@]}"; do
+        echo "$line" >> "$tmux_conf"
+    done
 fi
 
 tmux source ~/.tmux.conf
-~/.tumux/plugins/tpm/scripts/install_plugins.sh
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
 echo "Tmux-logging plugin installed"
