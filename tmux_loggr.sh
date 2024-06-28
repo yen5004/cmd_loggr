@@ -1,4 +1,4 @@
-# Used to install tmux Plugin Manager and Script logger
+# Used to install tmux Plugin Manager, Script logger, and any other tmux plugins
 
 # Create .tmux file if none exisit
 cd ~
