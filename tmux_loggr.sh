@@ -42,7 +42,18 @@ else
   echo ".tmux/plugins/tpm/scripts folder already exists"
 fi
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "/tmp/tmux-0/default" ]; then
+  echo "/tmp/tmux-0/default  folder not found. Creating..."
+  sudo mkdir "/tmp/tmux-0/default " && sudo chmod 777 -R "/tmp/tmux-0/default "
+  echo "/tmp/tmux-0/default  folder created successfully."
+else  
+  echo "/tmp/tmux-0/default  folder already exists"
+fi
+
+/root/.tmux/plugins/tpm/scripts/install_plugins.sh: No such file or directory
+
+
+git clone -f https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux_conf=~/.tmux.conf
 
 # Place Plugins here:
