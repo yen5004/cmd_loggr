@@ -15,7 +15,7 @@ update_shell_config() {
     echo "###########_Custom Script Below_###########" >> "$config_file"
     echo "export NAME=$name" >> "$config_file"
     echo 'RPROMPT="[%D{%d%b%Y}|%D{%L:%M}]"' >> "$config_file"
-    echo 'test "$(ps -ocommand= -p $PPID | awk '\''{print $1}'\'')" == '\''script'\'' || (script -a -f $HOME/log/$(date +"%F")_shell.log)' >> "$config_file"
+    echo 'test "$(ps -ocommand= -p $PPID | awk '{print $1}')" == 'script' || (script -a -f $HOME/log/$(date +"%F")_shell.log)' >> "$config_file"
     echo "echo User Name: '$name'" >> "$config_file"
     echo "ip addr" >> "$config_file"
     echo 'note="use exit to close script"' >> "$config_file"
