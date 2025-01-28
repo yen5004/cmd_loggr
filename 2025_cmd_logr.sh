@@ -11,7 +11,7 @@ update_shell_config() {
     local name=$2
 
     echo "###########_Custom Script Below_###########" >> "$config_file"
-    echo "Script created by Franco M." >> "$config_file"
+    echo "#   Script created by Franco M." >> "$config_file"
     echo "###########_Custom Script Below_###########" >> "$config_file"
     echo "export NAME=$name" >> "$config_file"
     echo 'RPROMPT="[%D{%d%b%Y}|%D{%L:%M}]"' >> "$config_file"
