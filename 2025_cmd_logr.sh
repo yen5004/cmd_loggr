@@ -16,9 +16,8 @@ update_shell_config() {
     echo "export NAME=$name" >> "$config_file"
     echo 'RPROMPT="[%D{%d%b%Y}|%D{%L:%M}]"' >> "$config_file"
     
-    # Corrected logging command
-    # Fixed quoting inside the command to handle `awk` and `script` properly
-    echo 'test "$(ps -ocommand= -p $PPID | awk \x27{print $1}\x27)" == \x27script\x27 || (script -a -f $HOME/log/$(date +"%F")_shell.log)' >> "$config_file"
+    # Corrected logging command with full path to 'script' and fixed quoting
+    echo 'test "$(ps -ocommand= -p $PPID | awk '\''{print $1}'\'' )" == '\''script'\'' || (/usr/bin/script -a -f $HOME/log/$(date +"%F")_shell.log)' >> "$config_file"
     
     echo "echo User Name: '$name'" >> "$config_file"
     echo "ip addr" >> "$config_file"
