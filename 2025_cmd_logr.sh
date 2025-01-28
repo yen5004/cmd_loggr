@@ -17,6 +17,7 @@ update_shell_config() {
     echo 'RPROMPT="[%D{%d%b%Y}|%D{%L:%M}]"' >> "$config_file"
     
     # Corrected logging command
+    # Fixed quoting inside the command to handle `awk` and `script` properly
     echo 'test "$(ps -ocommand= -p $PPID | awk \x27{print $1}\x27)" == \x27script\x27 || (script -a -f $HOME/log/$(date +"%F")_shell.log)' >> "$config_file"
     
     echo "echo User Name: '$name'" >> "$config_file"
