@@ -16,9 +16,11 @@ update_shell_config() {
     echo "export NAME=$name" >> "$config_file"
     echo 'RPROMPT="[%D{%d%b%Y}|%D{%L:%M}]"' >> "$config_file"
     
-    # Corrected logging command with full path to 'script' and fixed quoting
-    echo 'test "$(ps -ocommand= -p $PPID | awk '\''{print $1}'\'' )" == '\''script'\'' || (/usr/bin/script -a -f $HOME/log/$(date +"%F")_shell.log)' >> "$config_file"
-    
+    # Refined logging command to avoid infinite loop
+    echo 'if [[ "$(ps -ocommand= -p $PPID)" != "script" ]]; then' >> "$config_file"
+    echo '    /usr/bin/script -a -f $HOME/log/$(date +"%F")_shell.log' >> "$config_file"
+    echo 'fi' >> "$config_file"
+
     echo "echo User Name: '$name'" >> "$config_file"
     echo "ip addr" >> "$config_file"
     echo 'note="use exit to close script"' >> "$config_file"
